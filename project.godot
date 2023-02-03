@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="reborn-v4"
+run/main_scene="res://world.tscn"
+config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/bg_color=Color(0.12549, 0.133333, 0.211765, 1)
+boot_splash/image="res://reborn-title.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+mouse_cursor/custom_image="res://assets/ui/cursors/cursor.png"
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="PlayerHurtbox"
+2d_physics/layer_4="EnemyHurtbox"
+2d_physics/layer_5="Enemy"
+2d_physics/layer_6="SoftCollisions"
+2d_physics/layer_7="ResourceHurtbox"
+2d_physics/layer_8="ResourceDeliveryHurtbox"
+2d_physics/layer_9="Resource"
+2d_physics/layer_10="PlayerAreaEntered"
+2d_physics/layer_11="CritterWaypoint"
+2d_physics/layer_12="ItemDrop"
+2d_physics/layer_13="NPC"
+2d_physics/layer_14="NPCHurtbox"
+2d_physics/layer_15="NPCHitbox"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3
