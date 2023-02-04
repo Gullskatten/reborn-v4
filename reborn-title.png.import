@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/reborn-title.png-5f8d7619176827f0c42bfe64d627
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

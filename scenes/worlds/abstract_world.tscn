@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3urm4hm0fewf"]
+
+[ext_resource type="PackedScene" uid="uid://bqs5htpcf8cwr" path="res://scenes/abstract/abstract_world.tscn" id="1_kaxan"]
+
+[node name="AbstractWorld" instance=ExtResource("1_kaxan")]
+
+[node name="Node2D" type="Node2D" parent="Content" index="1"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://20k8d7md7mlo"]
+
+[ext_resource type="Script" path="res://camera/camera_controller.gd" id="1_br2qp"]
+
+[node name="CameraController" type="Node2D"]
+script = ExtResource("1_br2qp")
+
+[node name="CameraPosition" type="Marker2D" parent="."]
+
+[node name="Camera" type="Camera2D" parent="CameraPosition"]
+position = Vector2(962, 549)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true

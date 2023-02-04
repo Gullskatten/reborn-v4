@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dknyvvt6wplp3" path="res://scenes/MainScene.tscn" id="1_dkulm"]
 
 [node name="World" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,3 +13,6 @@ grow_vertical = 2
 
 [node name="MainScene" parent="." instance=ExtResource("1_dkulm")]
 layout_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0

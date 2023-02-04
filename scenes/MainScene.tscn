@@ -1,28 +1,101 @@
-[gd_scene load_steps=2 format=3 uid="uid://dknyvvt6wplp3"]
+[gd_scene load_steps=8 format=3 uid="uid://dknyvvt6wplp3"]
+
+[ext_resource type="Script" path="res://scenes/MainScene.gd" id="1_idyco"]
+[ext_resource type="PackedScene" uid="uid://bnqrfg4m7kt3g" path="res://time/day_night_cycle.tscn" id="2_fe0il"]
+[ext_resource type="Texture2D" uid="uid://dkolb5oace5rt" path="res://assets/light/Light_Tiny.png" id="2_rn8j2"]
+[ext_resource type="PackedScene" uid="uid://by2vvr0bbdbf8" path="res://fx/post_fx.tscn" id="2_xp5aj"]
+[ext_resource type="PackedScene" uid="uid://cyg4u2mlyx7tb" path="res://scenes/worlds/world_1.tscn" id="5_f47hm"]
+[ext_resource type="PackedScene" uid="uid://cwvw1vtjje812" path="res://fx/dof.tscn" id="6_kmoyc"]
 
 [sub_resource type="Environment" id="Environment_xgt1y"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_exposure = 1.05
+ssil_sharpness = 0.71
+glow_enabled = true
+glow_levels/6 = 1.0
+glow_bloom = 0.35
 
 [node name="MainScene" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_idyco")
 
 [node name="GUI" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GUI"]
+follow_viewport_enabled = true
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="DebugTimeLabel" type="RichTextLabel" parent="GUI/CanvasLayer"]
+offset_left = 35.0
+offset_top = 921.0
+offset_right = 226.0
+offset_bottom = 961.0
+text = "Time"
+
+[node name="DebugFPSLabel" type="RichTextLabel" parent="GUI/CanvasLayer"]
+offset_left = 1697.0
+offset_top = 934.0
+offset_right = 1865.0
+offset_bottom = 974.0
+text = "FPS"
+
+[node name="WorldViewportContainer" type="SubViewportContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="WorldViewport" type="SubViewport" parent="WorldViewportContainer"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 3
+audio_listener_enable_2d = true
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="SubViewportContainer/SubViewport"]
+[node name="AbstractWorld" parent="WorldViewportContainer/WorldViewport" instance=ExtResource("5_f47hm")]
+
+[node name="PointLight2D" type="PointLight2D" parent="WorldViewportContainer/WorldViewport"]
+position = Vector2(1354.8, 344.979)
+color = Color(0.278431, 0.654902, 0.854902, 1)
+energy = 1.79
+texture = ExtResource("2_rn8j2")
+texture_scale = 7.31
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="WorldViewportContainer/WorldViewport"]
 environment = SubResource("Environment_xgt1y")
+
+[node name="DayNightCycle" parent="WorldViewportContainer/WorldViewport" instance=ExtResource("2_fe0il")]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="WorldViewportContainer/WorldViewport"]
+energy = 0.2
+
+[node name="Effects" type="Control" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.069
+anchor_bottom = 1.078
+offset_right = -132.48
+offset_bottom = -84.2401
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PostFX" parent="Effects" instance=ExtResource("2_xp5aj")]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Dof" parent="Effects" instance=ExtResource("6_kmoyc")]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0

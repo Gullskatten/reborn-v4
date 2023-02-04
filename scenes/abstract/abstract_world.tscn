@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqs5htpcf8cwr"]
+
+[ext_resource type="Shader" path="res://scenes/abstract/clouds.gdshader" id="1_8jb6y"]
+[ext_resource type="PackedScene" uid="uid://20k8d7md7mlo" path="res://camera/camera_controller.tscn" id="1_u5k3n"]
+[ext_resource type="Texture2D" uid="uid://beqweiql1t65h" path="res://assets/cloud.png" id="2_2qg08"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yhot6"]
+shader = ExtResource("1_8jb6y")
+shader_parameter/fog_texture = ExtResource("2_2qg08")
+
+[node name="AbstractWorld" type="Node2D"]
+
+[node name="Content" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Content"]
+
+[node name="Clouds" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_yhot6")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -11.0
+offset_right = 3845.0
+offset_bottom = 2149.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraController" parent="." instance=ExtResource("1_u5k3n")]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://by2vvr0bbdbf8"]
+
+[ext_resource type="Script" path="res://fx/post_fx.gd" id="1_jallm"]
+[ext_resource type="Shader" path="res://fx/post_fx.gdshader" id="1_pmrby"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk55s"]
+shader = ExtResource("1_pmrby")
+shader_parameter/mode = 5
+shader_parameter/linearColorSpace = false
+shader_parameter/color1 = Color(0.188235, 0.243137, 0.321569, 1)
+shader_parameter/color2 = Color(0.423529, 0.101961, 0.780392, 1)
+shader_parameter/direction = Vector2(0.1, 0.7)
+shader_parameter/opacity = 0.588
+
+[node name="PostFX" type="ColorRect"]
+material = SubResource("ShaderMaterial_wk55s")
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_jallm")

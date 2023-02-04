@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyg4u2mlyx7tb"]
+
+[ext_resource type="PackedScene" uid="uid://bqs5htpcf8cwr" path="res://scenes/abstract/abstract_world.tscn" id="1_l8u3c"]
+[ext_resource type="Texture2D" uid="uid://d3sj75akowa64" path="res://splash.png" id="2_4d5wq"]
+[ext_resource type="Texture2D" uid="uid://c0jp8y2x5mdnl" path="res://assets/slime_pink_1_portrait.png" id="3_hi6i6"]
+
+[node name="AbstractWorld" instance=ExtResource("1_l8u3c")]
+
+[node name="Splash" type="Sprite2D" parent="Content" index="0"]
+scale = Vector2(1.935, 1.89833)
+texture = ExtResource("2_4d5wq")
+centered = false
+
+[node name="SlimePink1Portrait" type="Sprite2D" parent="Content" index="1"]
+position = Vector2(612, 415)
+texture = ExtResource("3_hi6i6")

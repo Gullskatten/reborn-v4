@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwvw1vtjje812"]
+
+[ext_resource type="Shader" path="res://fx/dof.gdshader" id="1_ej00d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wi7wa"]
+shader = ExtResource("1_ej00d")
+shader_parameter/limit = 0.2
+shader_parameter/blur = 2.5
+shader_parameter/intensity = 0.5
+
+[node name="Dof" type="ColorRect"]
+material = SubResource("ShaderMaterial_wi7wa")
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
